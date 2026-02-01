@@ -1,0 +1,20 @@
+---
+
+services:
+  logo-fetcher:
+    build: .
+    environment:
+      - PLEX_URL=${PLEX_URL}
+      - PLEX_TOKEN=${PLEX_TOKEN}
+      - FANART_API_KEY=${FANART_API_KEY}
+      - LIBRARY_NAME=${LIBRARY_NAME:-Music}
+      - UPDATE_PLEX=${UPDATE_PLEX:-true}
+      - FUZZY_THRESHOLD=${FUZZY_THRESHOLD:-90}
+      - FORCE_REFRESH=${FORCE_REFRESH:-false}  # Switch to True to re-download everything
+    volumes:
+      - data:/app/ArtistLogos
+      - logs:/app/Logs
+
+volumes:
+  data:
+  logs:
