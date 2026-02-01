@@ -75,7 +75,7 @@ def get_logo(mbid, plex_name):
             elif sd:
                 return sd[0]['url'], f"Success (SD Fallback) - Match: {score}%"
             else:
-                return None, "Artist exists on Fanart, but has no Logo assets (only backgrounds/art)"
+                return None, "Artist exists on Fanart, but has no logo assets (only backgrounds/art)"
                 
         return None, f"API Error (Status: {res.status_code})"
     except Exception as e:
@@ -139,7 +139,7 @@ for artist in artists:
         if logo_url:
             os.makedirs(artist_dir, exist_ok=True)
             if process_image(logo_url, img_path):
-                logger.info(f"✅ Saved: {artist.title} ({result_msg})")
+                logger.info(f"Saved: {artist.title} ({result_msg})")
                 stats["new_downloads"] += 1
                 
                 if UPDATE_PLEX:
